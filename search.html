@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Results - ShopZone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="top-header">
+
+        <div class="logo">
+            <a href="index.html">ShopZone</a>
+        </div>
+
+        <div class="search-box">
+            <input type="text"
+                   id="searchInput"
+                   placeholder="Search products..."
+                   onkeyup="searchProducts()">
+            <button>🔍</button>
+        </div>
+
+    </div>
+
+</header>
+
+<section class="section">
+
+<h2>🔍 Search Results</h2>
+
+<div class="products" id="productContainer">
+
+    <div class="product-card product-item">
+        <img src="apple.jpg" alt="">
+        <h3>iPhone 16</h3>
+        <h4>₹79,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="sum.jpg" alt="">
+        <h3>Samsung S26</h3>
+        <h4>₹74,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="onps.jpg" alt="">
+        <h3>OnePlus 14</h3>
+        <h4>₹59,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="goog.jpg" alt="">
+        <h3>Google Pixel 11</h3>
+        <h4>₹69,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="nike.jpg" alt="">
+        <h3>Nike Shoes</h3>
+        <h4>₹4,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="smart.jpg" alt="">
+        <h3>Smart TV</h3>
+        <h4>₹44,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card product-item">
+        <img src="mcbk.jpg" alt="">
+        <h3>MacBook Pro</h3>
+        <h4>₹1,49,999</h4>
+        <button>Add to Cart</button>
+    </div>
+
+</div>
+
+</section>
+
+<script>
+
+function searchProducts() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value.toLowerCase();
+
+    let products =
+        document.getElementsByClassName("product-item");
+
+    for (let i = 0; i < products.length; i++) {
+
+        let title =
+            products[i]
+            .getElementsByTagName("h3")[0]
+            .innerText
+            .toLowerCase();
+
+        if (title.includes(input)) {
+            products[i].style.display = "";
+        }
+        else {
+            products[i].style.display = "none";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
